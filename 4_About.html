@@ -114,7 +114,7 @@
                 z-index:70 !important;
                 margin-top: 18px;
                 align-items: flex-end;
-                top: 93%;
+                top: 50%;
             }
             .navText {
                 font-size: 16px;
@@ -142,11 +142,10 @@
             nav a:hover::after {
                 width: 100%;
             }
-            .bottom_logo {
-            margin-bottom: 10px;
-            }
             .img_description{
-                margin-left: 10px;
+                position: relative;
+                margin-left: 0px !important;
+                left: -30px;
                 scale: 0.8;
             }
             .about-img-wrapper {
@@ -160,8 +159,101 @@
                 height: 350px;
                 justify-content: flex-start;
             }
+            .h1 {
+                margin-right: unset;
+            }
+            .contentBody2 {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                width: 100vw;
+            }
+            .contentBody2 div{
+                width: 100%;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+            .introText {
+                font-size: 20px !important;
+                width: 90vw !important;
+                left: 1.25rem !important;
+                z-index: 1 !important;
+            }
+            .midText {
+                font-size: 20px !important;
+                width: 90vw !important;
+                left: 1.25rem !important;
+                z-index: 1 !important;
+            }
+            .rightDiv {
+                position: relative;
+                margin-top: 32px;
+                width: 80vw !important;
+                left: 1.25rem;
+            }
+            html {
+                overflow-x: hidden;
+            }
+            .subheading2 {
+                margin-top: 32px !important;
+                margin-bottom: 32px !important;
+            }
+            .subheading2 a{
+                font-size: 34px !important;
+                max-width: 90vw;
+            }
+            .contactSection {
+                flex-direction: column !important;
+            }
+            .contactText {
+                width: 90vw !important;
+                justify-content: center !important;
+                left: 1.25rem !important;
+            }
+            #logo_cont {
+                z-index: 10 !important;
+            }
+            .main_Logo {
+                position: relative;
+                z-index: 101;
+            }
+            .topBar {
+                width: 100vw;
+                height: 120px;
+                position: fixed;
+                background-color: white;
+                z-index: 2;
+            }
+            .contactLinks {
+                position: relative;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                margin-top: 32px;
+                left: 1.25rem !important;
+            }
+            .contactLinks a {
+                margin-left: unset !important;
+            }
+            .bottom_logo {
+                left: 1.25rem !important;
+                font-size: 12px !important;
+                margin-right: 40px !important;
+                margin-bottom: 12px;
+            }
+            .bottom_logo p{
+                text-align: left !important;
+                margin-right: unset !important;
+            }
+            .inner-cursor {
+                display: none;
+            }
+            html {
+                cursor: auto !important;
+            }
+            a, button, span, div, input, label, select, textarea {
+                cursor: auto !important;
+            }
         }
-        
         /* Custom CSS for the transition effect */
         html {
             cursor: none;
@@ -272,7 +364,6 @@
         }
         .main_Logo {
             width: 60px;
-            mix-blend-mode: difference;
         }
         #back-button {
             cursor: none;
@@ -490,7 +581,7 @@
             display: flex;
             justify-content: space-between;
             font-family: UncutSans-Semibold;
-            font-size: 18px;
+            font-size: 12px;
             position: relative;
         }
         .bottom_logo p{
@@ -502,6 +593,9 @@
         }
         .rightDiv {
             width: 42vw;
+        }
+        .subheading3 {
+            font-size: 22px;
         }
     </style>
 </head>
@@ -524,6 +618,8 @@
                 <span class="absolute w-full h-1 bg-black transition-all duration-300 transform" id="bar1" style="top: 25%;"></span>
                 <span class="absolute w-full h-1 bg-black transition-all duration-300 transform" id="bar2" style="top: 75%;"></span>
             </span>
+        </div>
+        <div class="topBar">
         </div>
         <div class="fixed top-4 left-4 z-50" id="logo_cont">
             <img src="assets/Logo_v1.svg" alt="Logo" class="main_Logo">
@@ -562,31 +658,31 @@
         </div>
         <div class="contentBody2 flex flex-row justify-between">
             <div class="w-1/2">
-                <p class="introText left-10 z-50">
+                <p class="introText left-10 z-1">
                     I'm currently a Year 3 Undergraduate architecture student based in Singapore studying at The University of Melbourne. I have previously worked at Type0 Architecture after my National Service to gain some experience. I felt that the best way to learn about the industry was to get my hands dirty, being able to correspond with contractors, engineers and specialist was an eye-opening experience. 
                 </p>
-                <p class="midText left-10 z-50">
+                <p class="midText left-10 z-1">
                     I discovered my love for design and architecture in secondary school when I took a subject called Design and Technology. This was where I got heavily stuck in the design process and grew to appreciate the beauty in creation. I pursued this passion by attending Sinagpore Polytechnics' Diploma in Architecture (DArch) programme. Following that I had to serve my National Service which was followed up by working at Type0 Architecture.
                 </p>
             </div>
             <div class="w-1/2">
                 <div class="flex flex-col space-y-8 text-black font-[UncutSans-Regular] text-left text-[18px] rightDiv">
                     <div>
-                        <p class="text-gray-500">Currently</p>
+                        <p class="text-gray-500 subheading3">Currently</p>
                         <p class="invertText">Student @ University of Melbourne<br><span class="text-gray-600">Bachelor Of Design</span></p>
                     </div>
                     <div>
-                        <p class="text-gray-500">Experience</p>
+                        <p class="text-gray-500 subheading3">Experience</p>
                         <p class="invertText">Type0 Architecture<br><span class="text-gray-600"> 2023-2024</span></p>
                     </div>
                     <div>
-                        <p class="text-gray-500">Education</p>
+                        <p class="text-gray-500 subheading3">Education</p>
                         <p class="invertText">Univesity of Melbourne, Bachelor in Design (BDes) <br><span class="text-gray-600">2025-Present</span></p>
                         <p class="invertText">Singapore Polytechnic, Diploma in Architecture (DArch) <br><span class="text-gray-600">2018-2021</span></p>
                         <p class="invertText">Northbrooks Secondary School <br><span class="text-gray-600">2014-2017</span></p>
                     </div>
                     <div>
-                        <p class="text-gray-500">Programs</p>
+                        <p class="text-gray-500 subheading3">Programs</p>
                         <div class="grid grid-cols-2 gap-x-1 gap-y-1">
                             <p class="invertText">AutoCAD</p>
                             <p class="invertText">Revit</p>
@@ -606,7 +702,7 @@
                     </div>
 
                     <div>
-                        <p class="text-gray-500">Location</p>
+                        <p class="text-gray-500 subheading3">Location</p>
                         <p class="invertText">Melbourne<br><span class="text-gray-600">37.8136° S, 144.9631° E</span></p>
                     </div>
                 </div>
@@ -614,7 +710,7 @@
         </div>
         <div>
             <div class="subheading2">
-                <a target="_blank" href="mailto:kyleeeaguas@gmail.com">LETS COLLABORATE!</a>
+                <a target="_blank" href="mailto:kyleeeaguas@gmail.com" >LETS COLLABORATE!</a>
             </div>
             <div class="contactSection">
                 <p class="contactText left-10 z-50">
@@ -629,7 +725,7 @@
         </div>
         <div class="bottom_logo left-10">
             <p class="text-gray-500">©2025, kyle aguas.</p>
-            <p class="text-gray-500">Last Update: AUG 2025</p>        
+            <p class="text-gray-500">Last Update: aug 2025</p>        
         </div>
     </main>
     <script>

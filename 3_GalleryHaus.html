@@ -58,19 +58,18 @@
                 display: none !important;
             }
             .home__project-media {
-                display: flex;
                 flex-direction: column !important;
-                align-items: flex-start;
+                justify-content: center;
             }
             .home__project-wrapper {
-                margin: 0px 0px 15px 65px !important;
-                padding-right: 65px !important;
+                margin: 0px 0px 15px 0px !important;
+                padding-right: 0px !important;
                 text-align: left;
-                width: calc(100% - 120px)!important;
+                width: 90vw !important;
                 height: auto;
             }
             .home__project-wrapper img{
-                width: 100% !important;
+                width: 95% !important;
                 height: unset !important;
                 object-fit: contain;
             }
@@ -85,10 +84,51 @@
             h3 {
                 display: none;
             }
+            a, button, span, div, input, label, select, textarea {
+                cursor: auto !important;
+            }
+            html {
+                overflow-x: hidden !important;
+                overflow-y: unset !important;
+                cursor: auto !important;
+            }
+            .content_Title {
+                position: relative;
+                text-align: left !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .columnContent {
+                margin: unset !important;
+                width: 90vw;
+            }
+            .textRight {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .content_MidText {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 25px !important;
+                margin-top: 25px !important;
+            }
+            .subheading_central {
+                position: relative;
+                width: auto !important;
+                height: 100px !important;
+                left: 1.25rem;
+            }
+
         }
         @media (max-width: 810px) {
             #exposed_menu {
                 background-color: transparent !important;
+                mix-blend-mode: normal;
             }
             #side-menu.translate-x-0 {
                 width: 100vw;
@@ -116,16 +156,13 @@
                 display: flex;
                 flex-direction: column !important;
                 justify-content: center;
+                overflow-x: hidden;
             }
             .home__project-wrapper {
-                margin: 0px 0px 15px 65px !important;
-                padding-right: 10px !important;
-                text-align: left;
-                width: calc(100% - 120px)!important;
-                height: auto;
+                width: 100vw !important;
             }
             .home__project-wrapper img{
-                width: 100% !important;
+                width: 95% !important;
                 height: unset !important;
                 object-fit: contain;
             }
@@ -140,7 +177,7 @@
             #menu-toggle {
                 z-index:70 !important;
                 margin-top: 18px;
-                align-items: center;
+                align-items: flex-end;
                 top: 50%;
             }
             .navText {
@@ -169,11 +206,58 @@
             nav a:hover::after {
                 width: 100%;
             }
+            .inner-cursor {
+                display: none;
+            }
+            a, button, span, div, input, label, select, textarea {
+                cursor: auto !important;
+            }
+            html {
+                overflow-x: hidden !important;
+                overflow-y: unset !important;
+                cursor: auto !important;
+            }
+            .content_Title {
+                position: relative;
+                text-align: left !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .columnContent {
+                margin: unset !important;
+                width: 90vw;
+            }
+            .textRight {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .content_MidText {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .bottom_logo {
+                display: flex !important;
+                left: 1.25rem !important;
+                font-size: 12px !important;
+                margin-right: 40px !important;
+                margin-bottom: 12px;
+            }
+            .bottom_logo p{
+                text-align: left !important;
+                width: 100%;
+                margin-right: unset !important;
+            }
         }
-        
         /* Custom CSS for the transition effect */
         html {
             cursor: none;
+            overflow-y: hidden;
         }
           a, button, span, div, input, label, select, textarea {
           cursor: none !important;
@@ -245,7 +329,6 @@
             font-family: UncutSans-Semibold;
             font-size: 26px;
         }
-
         #menu_text{
             display: flex;
             flex-direction: column;
@@ -254,7 +337,6 @@
         }
         .main_Logo {
             width: 60px;
-            mix-blend-mode: difference;
         }
         #back-button {
             cursor: none;
@@ -332,7 +414,7 @@
             width: 100%;
         }
         #menu-toggle {
-            z-index:70 !important;
+            z-index:70;
             margin-top: 18px;
         }
         #exposed_menu {
@@ -460,8 +542,8 @@
         }
         .content_MidText {
             text-align: left;
-            font-size: 14px;
-            width: 300px !important;
+            font-size: 16px;
+            width: 300px;
             font-family: UncutSans-Light;
         }
         .columnContent {
@@ -470,8 +552,8 @@
         }
         .textRight {
             text-align: right;
-            width: 300px !important;
-            font-size: 14px;
+            width: 300px;
+            font-size: 16px;
             font-family: UncutSans-Light;
         }
         .subheading {
@@ -488,6 +570,18 @@
             font-family: UncutSans-Regular;
             width: 200px !important;
             height: 80vh;
+        }
+        .bottom_logo {
+            display: none;
+            justify-content: space-between;
+            font-family: UncutSans-Semibold;
+            font-size: 12px;
+            position: relative;
+        }
+        .bottom_logo p{
+            display: none;
+            margin-right: 120px;
+            text-align: right;
         }
     </style>
 </head>
@@ -511,6 +605,8 @@
         </span>
     </div>
     <div class="contentBody">
+        <div class="topBar">
+        </div>
         <div class="fixed top-4 left-4 z-50" id="logo_cont">
             <img src="assets/Logo_v1.svg" alt="Logo" class="main_Logo">
         </div>
@@ -608,6 +704,10 @@
             </div>
             <div class="horizontal-scroll-progress__bar"></div>
         </div>
+    </div>
+    <div class="bottom_logo left-10">
+        <p class="text-gray-500">©2025, kyle aguas.</p>
+        <p class="text-gray-500">Last Update: aug 2025</p>        
     </div>
     <script>
         let innerCursor = document.querySelector('.inner-cursor');
