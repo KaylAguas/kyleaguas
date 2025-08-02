@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyle Aguas | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media (max-width: 810px) {
+            #exposed_menu {
+                background-color: transparent !important;
+            }
+            #side-menu.translate-x-0 {
+                width: 100vw;
+            }
+            body.menu-open .main_Logo {
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+            .main_Logo {
+                transition: opacity 0.3s ease-in-out;
+            }
+            .content {
+                left: -10%;
+                transform: translateX(18%);
+                text-align: center;
+                max-width: 100%;
+            }
+            #quote {
+                font-size: 18px;
+            }
+            #menu-toggle {
+            z-index:70 !important;
+            margin-top: 18px;
+            align-items: center;
+            top: 50%;
+            }
+        }
+        
+        /* Custom CSS for the transition effect */
+        *{
+            cursor: none;
+        }
+          a, button, span, div, input, label, select, textarea {
+          cursor: none !important;
+        }
+        .inner-cursor {
+            position: fixed;
+            left: 10px;
+            width: 10px;
+            height: 10px;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .inner-cursor.grow {
+            width: 25px;
+            height: 25px;
+            transition: width 0.3s, height 0.3s;
+        }
+        @font-face {
+            font-family: 'UncutSans-Bold';
+            src: url('fonts/UncutSans-Bold.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-BoldItalic';
+        src: url('fonts/UncutSans-BoldItalic.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-Book';
+        src: url('fonts/UncutSans-Book.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-BookItalic';
+        src: url('fonts/UncutSans-BookItalic.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-Light';
+        src: url('fonts/UncutSans-Light.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-LightItalic';
+        src: url('fonts/UncutSans-LightItalic.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-Medium';
+        src: url('fonts/UncutSans-Medium.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-MediumItalic';
+        src: url('fonts/UncutSans-MediumItalic.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-Regular';
+        src: url('fonts/UncutSans-Regular.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-RegularItalic';
+        src: url('fonts/UncutSans-RegularItalic.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-Semibold';
+        src: url('fonts/UncutSans-Semibold.otf') format('opentype');
+        }
+
+        @font-face {
+        font-family: 'UncutSans-SemiboldItalic';
+        src: url('fonts/UncutSans-SemiboldItalic.otf') format('opentype');
+        }
+
+        body {
+            font-family: UncutSans-Regular;
+        }
+        .contentBody {
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+        .contentBody.loaded {
+            opacity: 1;
+            transition: opacity 1.5s ease;
+        }
+        .contentBody.fade-out {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            transition: transform 0.45s ease-in-out;
+        }
+
+        body.menu-open .image-container {
+            transform: translateX(-80px);
+        }
+        
+        .image-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            will-change: opacity;
+        }
+        
+        .image-slide.active {
+            opacity: 1;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        .content {
+            position: absolute;
+            bottom: 1rem;
+            right: 6rem;
+            text-align: right;
+            color: white;
+            opacity: 0;
+            transition: all 0.45s ease-in-out;
+            max-width: 90%;
+            z-index: 2;
+        }
+
+        body.menu-open .content {
+            transform: translateX(-80px);
+        }
+        
+        .content.active {
+            opacity: 1;
+        }
+        
+        .nav-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            display: none;
+        }
+        
+        .nav-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        #typo_logo {
+            margin-top: 4px;
+            font-family: UncutSans-Semibold;
+            font-size: 26px;
+        }
+
+        #menu_text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: calc(100vh - 120px); /* Account for header and padding */
+        }
+
+        .main_Logo {
+            width: 60px;
+            mix-blend-mode: difference;
+        }
+
+        .doubleText {
+            display:flex;
+            flex-direction:row;
+            justify-content: space-between;
+            font-size:16px;
+        }
+        #menu-toggle {
+            z-index:60 !important;
+            margin-top: 18px;
+        }
+        #exposed_menu {
+            background-color: #F7F4ED;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 64px;
+            height: 100%;
+            z-index: 50;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding-right: 1rem;
+        }
+        .sideBar_open {
+            padding:12px 24px 24px;
+        }
+    </style>
+</head>
+<body class="UncutSans-Regular">
+    <div id="side-menu" class="fixed top-0 right-0 h-full w-56 bg-[#F7F4ED] text-gray-800 transform translate-x-full transition-transform duration-500 ease-in-out z-40">
+        <div class="sideBar_open h-full flex flex-col">
+            <h2 class="mb-6" id="typo_logo">kyle aguas.</h2>
+            <ul class="space-y-2 flex-grow flex flex-col justify-center" id="menu_text">
+                <li><a href="index.html" class="block hover:pl-4 transition-all duration-300">Home</a></li>
+                <li><a href="About.html" class="block hover:pl-4 transition-all duration-300">About</a></li>
+                <li><a href="Architecture.html" class="block hover:pl-4 transition-all duration-300">Architecture</a></li>
+                <li><a href="3D_Printing.html" class="block hover:pl-4 transition-all duration-300">3D Printing</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="fixed top-0 right-0 w-[60px] h-full z-50 flex items-center justify-end pr-4" id="exposed_menu">
+        <div class="inner-cursor"></div>
+        <span id="menu-toggle" class="relative w-8 h-8 flex items-center justify-end">
+            <span class="absolute w-full h-1 bg-black transition-all duration-300 transform" id="bar1" style="top: 25%;"></span>
+            <span class="absolute w-full h-1 bg-black transition-all duration-300 transform" id="bar2" style="top: 75%;"></span>
+        </span>
+    </div>
+    <div class="contentBody">
+        <a href="index.html" class="fixed top-4 left-4 z-50" id="logo_cont">
+            <img src="assets/Logo_v1.svg" alt="Logo" class="main_Logo">
+        </a>
+        <div class="image-container">
+
+            <!-- Slide 1 -->
+            <div class="image-slide active" style="background-image: url('assets/1.jpg');">
+                <div class="overlay"></div>
+                <div class="content active">                
+                    <p class="text-[24px] mb-6" id="quote">The human experience comes first and foremost in architecture.</p>
+                    <div class="doubleText">
+                        <a href="GalleryHaus.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        GalleryHaus
+                        </a>
+                        <a href="Architecture.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        Explore More
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="image-slide" style="background-image: url('assets/3.jpg');">
+                <div class="overlay"></div>
+                <div class="content">
+                    <p class="text-[24px] mb-6" id="quote">The human experience comes first and foremost in architecture.</p>
+                    <div class="doubleText">
+                        <a href="LightFilterHouse.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        Light Filter House
+                        </a>
+                        <a href="Architecture.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        Explore More
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="image-slide" style="background-image: url('assets/4.jpg');">
+                <div class="overlay"></div>
+                <div class="content">
+                    <p class="text-[24px] mb-6" id="quote">The human experience comes first and foremost in architecture.</p>
+                    <div class="doubleText">
+                        <a href="Novus.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        Novus
+                        </a>
+                        <a href="Architecture.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        Explore More
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="image-slide" style="background-image: url('assets/5.jpg');">
+                <div class="overlay"></div>
+                <div class="content">
+                    <p class="text-[24px] mb-6" id="quote">The human experience comes first and foremost in architecture.</p>
+                    <div class="doubleText">
+                        <a href="SocialWeaver.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        Social Weaver
+                        </a>
+                        <a href="Architecture.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        Explore More
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 5 -->
+            <div class="image-slide" style="background-image: url('assets/6.jpg');">
+                <div class="overlay"></div>
+                <div class="content">
+                    <p class="text-[24px] mb-6" id="quote">The human experience comes first and foremost in architecture.</p>
+                    <div class="doubleText">
+                        <a href="GalleryHaus.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        Cove Way
+                        </a>
+                        <a href="Architecture.html" class="text-white hover:text-gray-300 transition duration-300 flex items-center group">
+                        Explore More
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Dots -->
+            <div class="nav-dots">
+                <div class="nav-dot active" data-index="0"></div>
+                <div class="nav-dot" data-index="1"></div>
+                <div class="nav-dot" data-index="2"></div>
+                <div class="nav-dot" data-index="3"></div>
+                <div class="nav-dot" data-index="4"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let innerCursor = document.querySelector('.inner-cursor');
+        
+        document.addEventListener('mousemove', moveCursor);
+
+        function moveCursor(e){
+            let x = e.clientX;
+            let y = e.clientY;
+        
+            innerCursor.style.left= `${x}px`
+            innerCursor.style.top= `${y}px`
+        }
+
+        let links = Array.from(document.querySelectorAll("a"));
+        let menuToggle = document.getElementById("menu-toggle");
+        let buttons = Array.from(document.querySelectorAll("button"));
+
+        links.forEach((link) => {
+          link.addEventListener("mouseover", () => {
+            innerCursor.classList.add("grow");
+          });
+
+          link.addEventListener("mouseleave", () => {
+            innerCursor.classList.remove("grow");
+          });
+        });
+
+        buttons.forEach((button) => {
+          button.addEventListener("mouseover", () => {
+            innerCursor.classList.add("grow");
+          });
+
+          button.addEventListener("mouseleave", () => {
+            innerCursor.classList.remove("grow");
+          });
+        });
+
+        if (menuToggle) {
+          menuToggle.addEventListener("mouseover", () => {
+            innerCursor.classList.add("grow");
+          });
+
+          menuToggle.addEventListener("mouseleave", () => {
+            innerCursor.classList.remove("grow");
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const sideMenu = document.getElementById('side-menu');
+            const menuLinks = document.querySelectorAll('#menu_text a');
+            
+            function toggleMenu() {
+                sideMenu.classList.toggle('translate-x-full');
+                sideMenu.classList.toggle('translate-x-0');
+                
+                // Toggle menu icon animation
+                const bar1 = document.getElementById('bar1');
+                const bar2 = document.getElementById('bar2');
+                
+                if (sideMenu.classList.contains('translate-x-0')) {
+                    // Transform to X
+                    document.body.classList.add('menu-open');
+                    bar1.style.transform = 'translateY(8px) rotate(45deg)';
+                    bar2.style.transform = 'translateY(-8px) rotate(-45deg)';
+                } else {
+                    // Back to hamburger
+                    document.body.classList.remove('menu-open');
+                    bar1.style.transform = '';
+                    bar2.style.transform = '';
+                }
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+            
+            // Close menu when clicking any menu link
+            menuLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+
+            const slides = document.querySelectorAll('.image-slide');
+            const contents = document.querySelectorAll('.content');
+            const dots = document.querySelectorAll('.nav-dot');
+            let currentIndex = 0;
+            let interval;
+            
+            // Function to change slide
+            function changeSlide(index) {
+                // Remove active classes
+                slides.forEach(slide => slide.classList.remove('active'));
+                contents.forEach(content => content.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Add active classes to new slide
+                slides[index].classList.add('active');
+                contents[index].classList.add('active');
+                dots[index].classList.add('active');
+                
+                currentIndex = index;
+            }
+            
+            // Auto slide change
+            function startSlider() {
+                interval = setInterval(() => {
+                    let nextIndex = (currentIndex + 1) % slides.length;
+                    changeSlide(nextIndex);
+                }, 5000); // Change every 5 seconds
+            }
+            
+            // Pause on hover
+            const container = document.querySelector('.image-container');
+            container.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+            
+            container.addEventListener('mouseleave', startSlider);
+            
+            // Dot navigation
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    changeSlide(index);
+                });
+            });
+            
+            // Start the slider
+            startSlider();
+            
+            // Touch events for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            container.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+                clearInterval(interval);
+            }, {passive: true});
+            
+            container.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                startSlider();
+            }, {passive: true});
+            
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    // Swipe left - next slide
+                    let nextIndex = (currentIndex + 1) % slides.length;
+                    changeSlide(nextIndex);
+                }
+                
+                if (touchEndX > touchStartX + 50) {
+                    // Swipe right - previous slide
+                    let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    changeSlide(prevIndex);
+                }
+            }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+        const content = document.querySelector('.contentBody');
+        if (content) content.classList.add('loaded');
+
+        const links = document.querySelectorAll('a');
+
+        links.forEach(link => {
+            if (
+            link.hostname === window.location.hostname &&
+            link.getAttribute('target') !== '_blank' &&
+            !link.href.startsWith('#')
+            ) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const url = this.href;
+
+                // Close side menu if open
+                const sideMenu = document.getElementById('side-menu');
+                if (sideMenu && !sideMenu.classList.contains('translate-x-full')) {
+                    const menuToggle = document.getElementById('menu-toggle');
+                    if (menuToggle) menuToggle.click(); // Simulate click to close menu
+                }
+
+                if (content) {
+                    content.classList.remove('loaded');
+                    content.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = url;
+                    }, 600); // matches the blur-out duration
+                } else {
+                    window.location.href = url; // fallback
+                }
+            });
+            }
+        });
+        });
+    </script>
+</body>
+</html>

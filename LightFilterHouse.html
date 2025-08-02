@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Filter House</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .horizontal-scroll-progress {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vh;
+            max-width: 80vw;
+            height: 3px;
+            background: rgba(0,0,0,0.1);
+            z-index: 100;
+            display: none;
+        }
+        .horizontal-scroll-progress .active-section {
+            opacity: 1 !important;
+            font-family: UncutSans-Semibold;
+        }
+        .btm_text {
+            font-family: UncutSans-Light;
+        }
+        .horizontal-scroll-progress .flex span {
+            position: relative;
+            transform: translateX(0);
+        }
+
+        .horizontal-scroll-progress__bar {
+            height: 100%;
+            width: 0;
+            background: black;
+            transition: width 0.1s ease-out;
+        }
+
+        @media (min-width: 1200px) {
+            .horizontal-scroll-progress {
+                display: block;
+            }
+            html {
+                cursor: none;
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .home__project-media {
+                filter: blur(0px) !important;
+                transform: scale(1) !important;
+            }
+            .home__mobile-project-title{
+                display: block !important;
+            }
+            .scrollbar {
+                display: none !important;
+            }
+            .home__project-media {
+                flex-direction: column !important;
+                justify-content: center;
+            }
+            .home__project-wrapper {
+                margin: 0px 0px 15px 0px !important;
+                padding-right: 0px !important;
+                text-align: left;
+                width: 90vw !important;
+                height: auto;
+            }
+            .home__project-wrapper img{
+                width: 95% !important;
+                height: unset !important;
+                object-fit: contain;
+            }
+            .firstProj {
+                margin-top: 100px !important;
+            }
+            .home__mobile-project-title {
+                margin-top: 5px;
+                font-size: 24px;
+                text-align: left;
+            }
+            h3 {
+                position: relative;
+                text-align: left !important;
+                left: 1.25rem !important;
+            }
+            a, button, span, div, input, label, select, textarea {
+                cursor: auto !important;
+            }
+            html {
+                overflow-x: hidden !important;
+                overflow-y: unset !important;
+                cursor: auto !important;
+            }
+            .content_Title {
+                position: relative;
+                text-align: left !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .columnContent {
+                margin: unset !important;
+                width: 90vw;
+            }
+            .textRight {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .content_MidText {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 25px !important;
+                margin-top: 25px !important;
+            }
+            .subheading_central {
+                position: relative;
+                width: auto !important;
+                height: 100px !important;
+                align-items: center !important;
+                left: 1.25rem;
+            }
+            .hideFX {
+                display: none !important;
+            }
+        }
+        @media (max-width: 810px) {
+            #exposed_menu {
+                background-color: transparent !important;
+                mix-blend-mode: normal;
+            }
+            #side-menu.translate-x-0 {
+                width: 100vw;
+                z-index:60;
+            }
+            body.menu-open nav {
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+            nav {
+                transition: opacity 0.3s ease-in-out;
+            }
+            .content {
+                left: -10%;
+                transform: translateX(18%);
+                text-align: center;
+                max-width: 100%;
+            }
+            #quote {
+                font-size: 18px;
+            }
+            .home__project-media {
+                display: flex;
+                flex-direction: column !important;
+                justify-content: center;
+                overflow-x: hidden;
+            }
+            .home__project-wrapper {
+                width: 100vw !important;
+            }
+            .home__project-wrapper img{
+                width: 95% !important;
+                height: unset !important;
+                object-fit: contain;
+            }
+            .firstProj {
+                margin-top: 100px !important;
+            }
+            .home__mobile-project-title {
+                margin-top: 5px;
+                font-size: 24px;
+                text-align: left;
+            }
+            #menu-toggle {
+                z-index:70 !important;
+                margin-top: 18px;
+                align-items: flex-end;
+                top: 50%;
+            }
+            .navText {
+                font-size: 16px;
+                background-color: white;
+                padding-top: 32.5px;
+                padding-bottom: 32.5px;
+                gap: 10vw;
+                max-width: 80vw;
+            }
+            nav a {
+                position: relative;
+                text-decoration: none;
+                color: #6b6b6b !important;
+            }
+            nav a::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 1px;
+                bottom: -2px;
+                left: 0;
+                background-color: #6b6b6b;
+                transition: width 0.3s ease;
+            }
+            nav a:hover::after {
+                width: 100%;
+            }
+            .inner-cursor {
+                display: none;
+            }
+            a, button, span, div, input, label, select, textarea {
+                cursor: auto !important;
+            }
+            html {
+                overflow-x: hidden !important;
+                overflow-y: unset !important;
+                cursor: auto !important;
+            }
+            .content_Title {
+                position: relative;
+                text-align: left !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .columnContent {
+                margin: unset !important;
+                width: 90vw;
+            }
+            .textRight {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .content_MidText {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .bottom_logo {
+                display: flex !important;
+                left: 1.25rem !important;
+                font-size: 12px !important;
+                margin-right: 40px !important;
+                margin-bottom: 12px;
+            }
+            .bottom_logo p{
+                text-align: left !important;
+                width: 100%;
+                margin-right: unset !important;
+            }
+        }
+        /* Custom CSS for the transition effect */
+        html {
+            cursor: none;
+            overflow-y: hidden;
+        }
+          a, button, span, div, input, label, select, textarea {
+          cursor: none !important;
+        }
+        .inner-cursor {
+            position: fixed;
+            left: 10px;
+            width: 10px;
+            height: 10px;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: width 0.5s, height 0.5s;
+        }
+        .inner-cursor.hidden {
+            opacity: 0;
+        }
+        #side-menu {
+            z-index: 101;
+        }
+        .inner-cursor.grow {
+            width: 25px;
+            height: 25px;
+            transition: width 0.3s, height 0.3s;
+        }
+        @font-face {
+        font-family: 'UncutSans-Light';
+        src: url('fonts/UncutSans-Light.otf') format('opentype');
+        }
+        @font-face {
+        font-family: 'UncutSans-Regular';
+        src: url('fonts/UncutSans-Regular.otf') format('opentype');
+        }
+        @font-face {
+        font-family: 'UncutSans-RegularItalic';
+        src: url('fonts/UncutSans-RegularItalic.otf') format('opentype');
+        }
+        @font-face {
+        font-family: 'UncutSans-Semibold';
+        src: url('fonts/UncutSans-Semibold.otf') format('opentype');
+        }
+        @font-face {
+        font-family: 'UncutSans-SemiboldItalic';
+        src: url('fonts/UncutSans-SemiboldItalic.otf') format('opentype');
+        }
+        @font-face {
+        font-family: 'UncutSans-Bold';
+        src: url('fonts/UncutSans-Bold.otf') format('opentype');
+        }
+        body {
+            font-family: UncutSans-Regular;
+            background-color: white;
+        }
+        .contentBody {
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+        .contentBody.loaded {
+            opacity: 1;
+            transition: opacity 1.5s ease;
+        }
+        .contentBody.fade-out {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        #typo_logo {
+            margin-top: 4px;
+            font-family: UncutSans-Semibold;
+            font-size: 26px;
+        }
+        #menu_text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: calc(100vh - 120px); /* Account for header and padding */
+        }
+        .main_Logo {
+            width: 60px;
+        }
+        #back-button {
+            cursor: none;
+        }
+        .doubleText {
+            display:flex;
+            flex-direction:row;
+            justify-content: space-between;
+            font-size:16px;
+        }
+        .home__project-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 90px 0 90px 90px;
+            padding-right: 100px;
+            text-align: center;
+            width: calc(100% - 120px);
+        }
+        .home__project-media {
+            max-height: unset;
+            height: auto !important;
+            overflow: scroll;
+            position: relative;
+            width: 100%;
+            will-change: filter, transform;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none; /* For IE and Edge */
+        }
+        .home__project-media::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari and Opera */
+        }
+        .home__project-media.visible {
+            filter: blur(0px);
+            transform: scale(1);
+        }
+        .home__project-media img {
+            height: 80vh;
+            width: auto;
+            object-fit: cover;
+            margin: 0 auto;
+        }
+        .home__mobile-project-title{
+            display: none;
+        }
+        .navText {
+            font-size: 16px;
+            background-color: white;
+            padding-top: 32.5px;
+            padding-bottom: 32.5px;
+            gap: 10vw;
+            max-width: 100vw;
+        }
+        nav a {
+            position: relative;
+            text-decoration: none;
+            color: #6b6b6b !important;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #6b6b6b;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        #menu-toggle {
+            z-index:70;
+            margin-top: 18px;
+        }
+        #exposed_menu {
+            background-color: #F7F4ED;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 64px;
+            height: 100%;
+            z-index: 101;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding-right: 1rem;
+        }
+        .sideBar_open {
+            padding:12px 24px 24px;
+        }
+        .scrollbar {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60vh;
+            width: 2px;
+            background-color: rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+        .scrollbar__progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: black;
+            transition: height 0.2s ease-out;
+        }
+        .scrollbar__index {
+            position: absolute;
+            left: 10px;
+            font-family: UncutSans-Regular;
+            color: black;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 4px;
+            transform: translateY(-50%);
+            top: 50%;
+        }
+        .scrollbar__index-number {
+            font-size: 16px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .scrollbar__index-title {
+            font-size: 16px;
+            white-space: nowrap;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .scrollbar__index-year {
+            font-size: 16px;
+            white-space: nowrap;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin-left: 0px;
+        }
+        .scrollbar__index-year.fade-out {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .scrollbar__index-year.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scrollbar__index-number.fade-out,
+        .scrollbar__index-title.fade-out,
+        .scrollbar__index-comma.fade-out {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .scrollbar__index-number.fade-in,
+        .scrollbar__index-title.fade-in,
+        .scrollbar__index-comma.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scrollbar__index-separator {
+            font-size: 16px;
+        }
+        .exploreMore {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40vh;
+            margin-bottom: 40vh;
+        }
+        .exButton {
+            border: 1px solid black;
+            font-size: 3vh;
+            border-radius: 50px;
+            padding:11.5px 30px;
+            margin: 60px;
+            background-color: white;
+            color: black;
+            transition: all 0.3s ease;
+        }
+        .exButton:hover {
+            background-color: black;
+            color: white;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        .fixed.top-20.left-4.z-50 {
+            color: black;
+            transition: color 0.3s ease;
+        }
+        .home__project-media {
+            cursor: grab !important;
+            user-select: none;
+        }
+        .columnContent {
+            cursor: grab !important;
+            user-select: none;
+        }
+        .home__project-media.active {
+            cursor: grabbing !important;
+        }
+        .content_Title {
+            text-align: right;
+            font-size: 28px;
+            font-family: UncutSans-Semibold;
+        }
+        .content_MidText {
+            text-align: left;
+            font-size: 16px;
+            width: 300px;
+            font-family: UncutSans-Light;
+        }
+        .columnContent {
+            flex-direction: column;
+            margin: 0px 30px 30px 30px;         
+        }
+        .textRight {
+            text-align: right;
+            width: 300px;
+            font-size: 16px;
+            font-family: UncutSans-Light;
+        }
+        .subheading {
+            text-align: right;
+            font-size: 22px;
+            font-family: UncutSans-Regular;
+            margin-top: 22px;
+        }
+        .subheading_2 {
+            text-align: left;
+            font-size: 22px;
+            font-family: UncutSans-Regular;
+            margin-bottom: 22px;
+        }
+        .subheading_central {
+            display: flex;
+            justify-content: center;
+            font-size: 22px;
+            font-family: UncutSans-Regular;
+            width: 200px !important;
+            height: 80vh;
+        }
+        .bottom_logo {
+            display: none;
+            justify-content: space-between;
+            font-family: UncutSans-Semibold;
+            font-size: 12px;
+            position: relative;
+        }
+        .bottom_logo p{
+            display: none;
+            margin-right: 120px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="side-menu" class="fixed top-0 right-0 h-full w-56 bg-[#F7F4ED] text-gray-800 transform translate-x-full transition-transform duration-500 ease-in-out z-40">
+        <div class="sideBar_open h-full flex flex-col">
+            <h2 class="mb-6" id="typo_logo">kyle aguas.</h2>
+            <ul class="space-y-2 flex-grow flex flex-col justify-center" id="menu_text">
+                <li><a href="index.html" class="block hover:pl-4 transition-all duration-300">Home</a></li>
+                <li><a href="About.html" class="block hover:pl-4 transition-all duration-300">About</a></li>
+                <li><a href="Architecture.html" class="block hover:pl-4 transition-all duration-300">Architecture</a></li>
+                <li><a href="3D_Printing.html" class="block hover:pl-4 transition-all duration-300">3D Printing</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="fixed top-0 right-0 w-[60px] h-full z-50 flex items-center justify-end pr-4" id="exposed_menu">
+        <div class="inner-cursor"></div>
+        <span id="menu-toggle" class="relative w-8 h-8 flex items-center justify-end">
+            <span class="absolute w-full h-1 bg-black transition-all duration-300 transform" id="bar1" style="top: 25%;"></span>
+            <span class="absolute w-full h-1 bg-black transition-all duration-300 transform" id="bar2" style="top: 75%;"></span>
+        </span>
+    </div>
+    <div class="contentBody">
+        <div class="topBar">
+        </div>
+        <a href="index.html" class="fixed top-4 left-4 z-50" id="logo_cont">
+            <img src="assets/Logo_v1.svg" alt="Logo" class="main_Logo">
+        </a>
+        <a href="Architecture.html" class="fixed top-20 left-4 z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="24" viewBox="0 0  24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="flat" stroke-linejoin="flat">
+                <line id="mainLine" class="mainLine" x1="24" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+        </a>
+        <section class="home__regular-view-wrapper undefined">
+            <div class="home__project-wrapper firstProj">
+                <div class="home__project-media">
+                    <div id="precedence-section" class="columnContent">
+                        <h2 class="content_Title">Light Filter House</h2>
+                        <p class="textRight">University of Melbourne - Design Studio GAMMA</p>
+                        <h3 class="subheading">Typology</h3>
+                        <p class="textRight">Residential</p>
+                        <h3 class="subheading">Project Brief</h3>
+                        <p class="textRight">Design for Melbourne’s Inner City by addressing climate challenges through urban greening; consider rising temperature, sea level, post-COVID density, and access to nature. With emphasis on biodiversity, passive design, indoor-outdoor living, and green infrastructure. Solutions should be innovative, and support both human and non-human life.</p>
+                        <h3 class="subheading">Location</h3>
+                        <p class="textRight">McArthur Place North - Melbourne, Australia</p>
+                        <p class="textRight relative top-3 flex justify-end items-center gap-1 hideFX">Scroll Right
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="27" y2="12"></line>
+                                <polyline points="20 5 27 12 20 19"></polyline>
+                            </svg>
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/3.jpg" alt="19 Waterloo Street by SJB">
+                    <div class="columnContent">
+                        <h3 class="subheading_2">Precedence Studies</h3>
+                        <p class="content_MidText"> 
+                            Precedence studies were assigned to us and I received 19 Waterloo by SJB. The drawings on the right diagramatically showcase how the ancillary and primary spaces are divided, by doing so more can be achieved in the primary space which occupants would spend more time in.
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/17.jpg" alt="Floor Plan sketches">
+                    <div class="columnContent">
+                        <h3 class="subheading_2">Precedence Drawings</h3>
+                        <p class="content_MidText"> 
+                            By "more" I refer to the double volume space achieved in the living room. The space planning really shines due to how constrained the overall footprint of the building is but still manages to achieve depth in spaces and its primarily due to the systematical zonings of the house. 
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/18.jpg" alt="sketches">
+                    <div class="columnContent" id="site-section">
+                        <h3 class="subheading_2">Site Analysis</h3>
+                        <p class="content_MidText"> 
+                            The site is located in McArthur Place North, highlighted in red on the drawing to the right. My site plan showcases the porosity of the urban fabric through the laneways and the richness in vegetation.  
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/2.jpg" alt="Site Plan">
+                    <div class="columnContent">
+                        <h3 class="subheading_2">Site Diagrams</h3>
+                        <p class="content_MidText"> 
+                            The collage on the top right depicts my idea of porosity, residential ownership as well as integrated green throughout the dwellings. The pie chart below represents the materials through out Carlton and could be repository of what materials I could propose.   
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/6.jpg" alt="site diagram">
+                    
+                    <div class="columnContent" id="ideation-section">
+                        <h3 class="subheading_2">Ideation</h3>
+                        <p class="content_MidText"> 
+                            Started my design by experimenting with the means to entry to the dwellings to achieve the ownership I mentioned previously. I wanted the entry to each dwelling to feel unique and engaging to each owner. My chosen 2 sketches were then further developed with section drawings.
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/4.jpg" alt="plan sketches">
+                    <div class="columnContent">
+                        <h3 class="subheading_2">Volumetric Experience</h3>
+                        <p class="content_MidText"> 
+                            The sections was a play of the visual connections between each space and integrating volumes to create more depth in the overall design.
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/5.jpg" alt="section drawings">
+                    <img src="assets/Gamma/5.5.jpg" alt="section drawings">
+                    <div class="columnContent">
+                        <h3 class="subheading_2">Interior Sketches</h3>
+                        <p class="content_MidText"> 
+                            These 2 interior sketches were drawn up as a possibility of what the occupant would experience at different points in the building.
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/7.jpg" alt="section drawings">
+                    <div class="columnContent">
+                        <h3 class="subheading_2" id="plan-section">Plans</h3>
+                        <p class="content_MidText"> 
+                            The final floor plans attained a level of porosity and uniqueness with each dwelling in the building. I wanted them to feel like they own their apartment giving a sense of ownership. On the first storey I integrated what i call the Garden Strip which runs throughout the site and various dwellings, allowing for users to commune with their neighbours without having to go to the ground floor.
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/8.jpg" alt="Ground Floor Plan">
+                    <img src="assets/Gamma/9.jpg" alt="First Storey Plan">
+                    <img src="assets/Gamma/10.jpg" alt="Second Storey Plan">
+                    <div class="columnContent" id="section-section">
+                        <h3 class="subheading_2">Elevation & Section</h3>  
+                        <p class="content_MidText"> 
+                            Final Section and Elevation depicts the materiality of the building. With the elevation showing the use of the hit and miss brick quite substantially as the road that faces it is really busy and I wanted a means of reducing the visual connection from the inside out.
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/21.jpg" alt="Side Elevation">
+                    <div class="columnContent">
+                        <h3 class="subheading_2">Perspective Section</h3>
+                        <p class="content_MidText"> 
+                            My proudest drawing, this perspective section showcases all ideas in 1 area. The integration of green, varying planar and volumetric heights, visual connetions between each space.
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/14.jpg" alt="Perspective Section">
+                    <div class="columnContent"id="model-section">
+                        <h3 class="subheading_2">Model</h3>
+                        <p class="content_MidText"> 
+                            The final model was to be a sectional model. It was primarily hand cut and with the use of 3D printing to aid in the creation of the hit and miss bricks.
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/15.jpg" alt="Perspective Section">
+                    <img src="assets/Gamma/16.jpg" alt="Perspective Section">
+                    <div class="columnContent"id="model-section">
+                        <h3 class="subheading_2">Materials</h3>
+                        <p class="content_MidText"> 
+                            Various materials were used to bring the design to life. Balsa wood for the timber battens, PVC foamboard for most of the model, perspex for the glass and railings and PLA for the 3D printed hit and miss bricks.
+                        </p>
+                    </div>
+                    <img src="assets/Gamma/20.jpg" alt="Perspective Section">
+                </div>
+            </div>
+        </section>
+        <div class="horizontal-scroll-progress">
+            <div class="flex justify-between w-full absolute bottom-8 left-0 px-[10%] btm_text">
+                <a href="#precedence-section" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Precedence</a>
+                <a href="#site-section" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Site Analysis</a>
+                <a href="#ideation-section" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Ideation</a>
+                <a href="#plan-section" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Plans</a>
+                <a href="#section-section" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Section/Elevation</a>
+                <a href="#model-section" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Model</a>
+            </div>
+            <div class="horizontal-scroll-progress__bar"></div>
+        </div>
+    </div>
+    <div class="bottom_logo left-10">
+        <p class="text-gray-500">©2025, kyle aguas.</p>
+        <p class="text-gray-500">Last Update: aug 2025</p>        
+    </div>
+    <script>
+        let innerCursor = document.querySelector('.inner-cursor');
+        
+        document.addEventListener('mousemove', moveCursor);
+
+        function moveCursor(e){
+            let x = e.clientX;
+            let y = e.clientY;
+        
+            innerCursor.style.left= `${x}px`
+            innerCursor.style.top= `${y}px`
+        }
+
+        let links = Array.from(document.querySelectorAll("a"));
+        let menuToggle = document.getElementById("menu-toggle");
+        let buttons = Array.from(document.querySelectorAll("button"));
+
+        links.forEach((link) => {
+          link.addEventListener("mouseover", () => {
+            innerCursor.classList.add("grow");
+          });
+
+          link.addEventListener("mouseleave", () => {
+            innerCursor.classList.remove("grow");
+          });
+        });
+
+        buttons.forEach((button) => {
+          button.addEventListener("mouseover", () => {
+            innerCursor.classList.add("grow");
+          });
+
+          button.addEventListener("mouseleave", () => {
+            innerCursor.classList.remove("grow");
+          });
+        });
+
+        if (menuToggle) {
+          menuToggle.addEventListener("mouseover", () => {
+            innerCursor.classList.add("grow");
+          });
+
+          menuToggle.addEventListener("mouseleave", () => {
+            innerCursor.classList.remove("grow");
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const sideMenu = document.getElementById('side-menu');
+            const menuLinks = document.querySelectorAll('#menu_text a');
+            
+            function toggleMenu() {
+                sideMenu.classList.toggle('translate-x-full');
+                sideMenu.classList.toggle('translate-x-0');
+                
+                // Toggle menu icon animation
+                const bar1 = document.getElementById('bar1');
+                const bar2 = document.getElementById('bar2');
+                
+                if (sideMenu.classList.contains('translate-x-0')) {
+                    // Transform to X
+                    document.body.classList.add('menu-open');
+                    bar1.style.transform = 'translateY(8px) rotate(45deg)';
+                    bar2.style.transform = 'translateY(-8px) rotate(-45deg)';
+                } else {
+                    // Back to hamburger
+                    document.body.classList.remove('menu-open');
+                    bar1.style.transform = '';
+                    bar2.style.transform = '';
+                }
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+            
+            // Close menu when clicking any menu link
+            menuLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const medias = document.querySelectorAll('.home__project-media');
+            medias.forEach(media => {
+                media.addEventListener('click', function() {
+                    const href = this.getAttribute('data-href');
+                    if (href) {
+                        window.location.href = href;
+                    }
+                });
+            });
+            const projects = document.querySelectorAll('.home__project-wrapper');
+            const scrollProgress = document.querySelector('.scrollbar__progress');
+            const scrollIndexNumber = document.querySelector('.scrollbar__index-number');
+            const scrollIndexTitle = document.querySelector('.scrollbar__index-title');
+            const scrollIndexYear = document.querySelector('.scrollbar__index-year');
+            
+            function updateScrollbar() {
+                // Calculate scroll progress
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (scrollTop / scrollHeight) * 100;
+                scrollProgress.style.height = `${scrolled}%`;
+
+                // Fade out scrollbar when near bottom
+                const scrollbar = document.querySelector('.scrollbar');
+                const distanceFromBottom = scrollHeight - scrollTop;
+                const fadeThreshold = 1000; // pixels from bottom to start fading
+                
+                if (distanceFromBottom < fadeThreshold) {
+                    const opacity = distanceFromBottom / fadeThreshold;
+                    scrollbar.style.opacity = opacity;
+                } else {
+                    scrollbar.style.opacity = '1';
+                }
+                
+                // Update index number based on which project is in view
+                projects.forEach((project, index) => {
+                    const rect = project.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        if (scrollIndexNumber.textContent !== String(index + 1)) {
+                            scrollIndexNumber.textContent = index + 1;
+                            
+                            // Add fade out effect to all elements
+                            const comma = document.querySelector('.scrollbar__index-comma');
+                            scrollIndexNumber.classList.add('fade-out');
+                            scrollIndexTitle.classList.add('fade-out');
+                            scrollIndexYear.classList.add('fade-out');
+                            comma.classList.add('fade-out');
+                            
+                            // After fade out completes, change text and fade in
+                            setTimeout(() => {
+                                scrollIndexNumber.textContent = index + 1;
+                                scrollIndexTitle.textContent = project.querySelector('.home__project-title').textContent;
+                                scrollIndexYear.textContent = project.querySelector('.home__mobile-year').textContent;
+                                
+                                scrollIndexNumber.classList.remove('fade-out');
+                                scrollIndexTitle.classList.remove('fade-out');
+                                scrollIndexYear.classList.remove('fade-out');
+                                comma.classList.remove('fade-out');
+                                scrollIndexNumber.classList.add('fade-in');
+                                scrollIndexTitle.classList.add('fade-in');
+                                scrollIndexYear.classList.add('fade-in');
+                                comma.classList.add('fade-in');
+                                
+                                // Remove fade-in class after animation completes
+                                setTimeout(() => {
+                                    scrollIndexNumber.classList.remove('fade-in');
+                                    scrollIndexTitle.classList.remove('fade-in');
+                                    scrollIndexYear.classList.remove('fade-in');
+                                    separator.classList.remove('fade-in');
+                                    comma.classList.remove('fade-in');
+                                }, 300);
+                            }, 300);
+                        }
+                    }
+                });
+            }
+            
+            // Initial call
+            updateScrollbar();
+            
+            // Update on scroll
+            window.addEventListener('scroll', updateScrollbar);
+
+        function updateEffects() {
+            const centerY = window.innerHeight / 2;
+            const tolerance = window.innerHeight * 0.1; // 10% threshold (buffer zone)
+
+            medias.forEach(media => {
+                const rect = media.getBoundingClientRect();
+                const elementCenter = rect.top + rect.height / 2;
+                const distance = Math.abs(centerY - elementCenter);
+
+                if (distance <= tolerance) {
+                    // Inside clear zone: no blur, no scale
+                    media.style.filter = 'blur(0px)';
+                    media.style.transform = 'scale(1)';
+                } else {
+                    // Outside clear zone: apply based on how far beyond the threshold
+                    const maxDistance = centerY - tolerance;
+                    const normalized = Math.min((distance - tolerance) / maxDistance, 1);
+
+                    const blur = 40 * normalized;              // Max 40px blur
+                    const scale = 1 - 0.7 * normalized;         // Down to 0.4 scale
+
+                    media.style.filter = `blur(${blur}px)`;
+                    media.style.transform = `scale(${scale})`;
+                }
+            });
+        }
+            // Initial run
+            updateEffects();
+
+            // Update on scroll and resize
+            window.addEventListener('scroll', updateEffects);
+            window.addEventListener('resize', updateEffects);
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.querySelector('.contentBody');
+            if (content) content.classList.add('loaded');
+
+            const links = document.querySelectorAll('a');
+
+            links.forEach(link => {
+                // 🔒 Skip links inside .horizontal-scroll-progress
+                if (link.closest('.horizontal-scroll-progress')) return;
+
+                if (
+                    link.hostname === window.location.hostname &&
+                    link.getAttribute('target') !== '_blank' &&
+                    !link.href.startsWith('#')
+                ) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const url = this.href;
+
+                        if (content) {
+                            // Close menu if open
+                            const sideMenu = document.getElementById('side-menu');
+                            if (sideMenu && !sideMenu.classList.contains('translate-x-full')) {
+                                sideMenu.classList.add('translate-x-full');
+                                sideMenu.classList.remove('translate-x-0');
+                                document.body.classList.remove('menu-open');
+                                const bar1 = document.getElementById('bar1');
+                                const bar2 = document.getElementById('bar2');
+                                bar1.style.transform = '';
+                                bar2.style.transform = '';
+                            }
+                            
+                            content.classList.remove('loaded');
+                            content.classList.add('fade-out');
+                            setTimeout(() => {
+                                window.location.href = url;
+                            }, 600);
+                        } else {
+                            window.location.href = url;
+                        }
+                    });
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const svgLink = document.querySelector('a.fixed.top-20.left-4.z-50');
+        const mainLine = document.getElementById('mainLine');
+
+        let animationFrame;
+        let currentX1 = 24;
+        const duration = 300; // ms
+
+        function animateX1(toValue) {
+            const fromValue = currentX1;
+            const startTime = performance.now();
+
+            function update(time) {
+                const elapsed = time - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeInOutQuad(progress);
+                const newValue = fromValue + (toValue - fromValue) * eased;
+
+                mainLine.setAttribute('x1', newValue.toFixed(2));
+                currentX1 = newValue;
+
+                if (progress < 1) {
+                    animationFrame = requestAnimationFrame(update);
+                }
+            }
+
+            cancelAnimationFrame(animationFrame);
+            animationFrame = requestAnimationFrame(update);
+        }
+
+        function easeInOutQuad(t) {
+            return t < 0.5
+                ? 2 * t * t
+                : -1 + (4 - 2 * t) * t;
+        }
+
+        svgLink.addEventListener('mouseenter', () => animateX1(40));
+        svgLink.addEventListener('mouseleave', () => animateX1(24));
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const scrollContainer = document.querySelector('.home__project-media');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    // Disable image dragging
+    document.querySelectorAll('.home__project-media img').forEach(img => {
+        img.addEventListener('dragstart', e => e.preventDefault());
+    });
+
+    if (scrollContainer) {
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            scrollContainer.classList.add('active');
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+
+        let velocity = 0;
+        let lastX;
+        let animationId;
+        let lastTime;
+
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            scrollContainer.scrollLeft = scrollLeft - walk;
+            
+            // Calculate velocity for momentum
+            const now = performance.now();
+            if (lastX !== undefined && lastTime !== undefined) {
+                const deltaX = (x - lastX) * 1.1;
+                const deltaTime = now - lastTime;
+                velocity = deltaX / deltaTime * 500; // pixels per second
+            }
+            lastX = x;
+            lastTime = now;
+        });
+
+        function animateMomentum() {
+            if (Math.abs(velocity) > 0.1) {
+                scrollContainer.scrollLeft -= velocity * 0.016; // 60fps frame time
+                velocity *= 0.95; // friction
+                animationId = requestAnimationFrame(animateMomentum);
+            } else {
+                velocity = 0;
+                cancelAnimationFrame(animationId);
+            }
+        }
+
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+            if (Math.abs(velocity) > 10) { // Only apply momentum if significant velocity
+                cancelAnimationFrame(animationId);
+                animationId = requestAnimationFrame(animateMomentum);
+            }
+        });
+
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+            if (Math.abs(velocity) > 10) { // Only apply momentum if significant velocity
+                cancelAnimationFrame(animationId);
+                animationId = requestAnimationFrame(animateMomentum);
+            }
+        });
+    }
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        const innerCursor = document.querySelector('.inner-cursor');
+        const projectMedia = document.querySelectorAll('.home__project-media');
+        const progressBar = document.querySelector('.horizontal-scroll-progress__bar');
+
+        projectMedia.forEach(media => {
+            media.addEventListener('mouseenter', () => {
+                innerCursor.classList.add('hidden');
+            });
+
+            media.addEventListener('mouseleave', () => {
+                innerCursor.classList.remove('hidden');
+            });
+
+            // Track horizontal scroll progress
+            if (progressBar) {
+                media.addEventListener('scroll', () => {
+                    const scrollWidth = media.scrollWidth - media.clientWidth;
+                    const scrolled = (media.scrollLeft / scrollWidth) * 100;
+                    progressBar.style.width = `${scrolled}%`;
+                    
+                    // Highlight the current section
+                    const sectionSpans = document.querySelectorAll('.horizontal-scroll-progress a');
+                    sectionSpans.forEach(a => a.classList.remove('active-section'));
+                    
+                    if (scrolled === 0) {
+                        return; // No active section at 0%
+                    } else if (scrolled < 16.66) {
+                        sectionSpans[0].classList.add('active-section');
+                    } else if (scrolled < 33.33) {
+                        sectionSpans[1].classList.add('active-section');
+                    } else if (scrolled < 50) {
+                        sectionSpans[2].classList.add('active-section');
+                    } else if (scrolled < 66.66) {
+                        sectionSpans[3].classList.add('active-section');
+                    } else if (scrolled < 83.33) {
+                        sectionSpans[4].classList.add('active-section');
+                    } else {
+                        sectionSpans[5].classList.add('active-section');
+                    }
+                });
+            }
+        });
+    });
+
+        // Smooth scroll to sections
+        document.querySelectorAll('.horizontal-scroll-progress a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const mediaContainer = document.querySelector('.home__project-media');
+                
+                if (targetElement && mediaContainer) {
+                    const scrollPosition = targetElement.offsetLeft - mediaContainer.offsetLeft;
+                    mediaContainer.scrollTo({
+                        left: scrollPosition,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close menu if open
+                const sideMenu = document.getElementById('side-menu');
+                if (sideMenu && !sideMenu.classList.contains('translate-x-full')) {
+                    sideMenu.classList.add('translate-x-full');
+                    sideMenu.classList.remove('translate-x-0');
+                    document.body.classList.remove('menu-open');
+                    const bar1 = document.getElementById('bar1');
+                    const bar2 = document.getElementById('bar2');
+                    bar1.style.transform = '';
+                    bar2.style.transform = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
