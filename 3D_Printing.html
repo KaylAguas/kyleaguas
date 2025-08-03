@@ -543,40 +543,70 @@
         </div>
         <div class="exploreMore grid grid-cols-3 gap-0">
             <div class="overflow-hidden rounded-lg relative">
-                <img src="assets/2.jpg" alt="Tunnel of Youth" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn textTitle">Brick Facade</div>
+                <img src="assets/3DPrints/1.JPG" alt="Tunnel of Youth" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <div class="alt-text-btn textTitle">Twisted Cladding</div>
             </div>
             <div class="overflow-hidden rounded-lg relative">
-                <img src="assets/9.jpg" alt="CUBE Challenge 2018" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn textTitle">CUBE Challenge 2018</div>
+                <video alt="3dprints" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" muted loop>
+                    <source src="assets/3DPrints/v1.MP4" type="video/mp4">
+                </video>
+                <div class="alt-text-btn textTitle">Delta Floor Plan</div>
+                <script>
+                    const video1 = document.querySelector('.exploreMore div:nth-child(2) video');
+                    video1.parentElement.addEventListener('mouseenter', () => video1.play());
+                    video1.parentElement.addEventListener('mouseleave', () => {
+                        video1.pause();
+                        video1.currentTime = 0;
+                    });
+                </script>
             </div>
             <div class="overflow-hidden rounded-lg relative">
-                <img src="assets/8.jpg" alt="15 Woo Mon Chew" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn textTitle">15 Woo Mon Chew</div>
+                <img src="assets/3DPrints/2.jpg" alt="15 Woo Mon Chew" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <div class="alt-text-btn textTitle">Hit & Miss Brick</div>
             </div>
             <div class="overflow-hidden rounded-lg relative">
-                <img src="assets/10.jpg" alt="Faelles" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn textTitle">Faelles</div>
+                <video alt="3dprints" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" muted loop>
+                    <source src="assets/3DPrints/v2.MP4" type="video/mp4">
+                </video>
+                <div class="alt-text-btn textTitle">Parametric Cladding</div>
+                <script>
+                    const video2 = document.querySelector('.exploreMore div:nth-child(4) video');
+                    video2.parentElement.addEventListener('mouseenter', () => video2.play());
+                    video2.parentElement.addEventListener('mouseleave', () => {
+                        video2.pause();
+                        video2.currentTime = 0;
+                    });
+                </script>
             </div>
             <div class="overflow-hidden rounded-lg relative">
-                <img src="assets/11.jpg" alt="Steph's Renovation" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn textTitle">Steph's Renovation</div>
+                <img src="assets/3DPrints/3.JPG" alt="Steph's Renovation" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <div class="alt-text-btn textTitle">Flowered Columns</div>
             </div>
             <div class="overflow-hidden rounded-lg relative">
-                <img src="assets/12.jpg" alt="Jalan Kechil" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn textTitle">Jalan Kechil</div>
+                <img src="assets/3DPrints/4.JPG" alt="Jalan Kechil" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <div class="alt-text-btn textTitle">Prototype house</div>
             </div>
             <div class="overflow-hidden rounded-lg relative">
-                <img src="assets/13.jpg" alt="Elias Road" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn textTitle">Elias Road</div>
+                <img src="assets/3DPrints/5.JPG" alt="Elias Road" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <div class="alt-text-btn textTitle">Various Elements</div>
             </div>
             <div class="overflow-hidden rounded-lg relative">
-                <img src="assets/14.jpg" alt="Donovan Dwelling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn textTitle">Donovan Dwelling</div>
+                <img src="assets/3DPrints/6.JPG" alt="Donovan Dwelling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <div class="alt-text-btn textTitle">Parametric Cladding</div>
             </div>
             <div class="overflow-hidden rounded-lg relative">
-                <img src="assets/15.jpg" alt="Katong B1-124" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn textTitle">Katong B1-124</div>
+                <video alt="3dprints" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" muted loop>
+                    <source src="assets/3DPrints/v3.MP4" type="video/mp4">
+                </video>
+                <div class="alt-text-btn textTitle">Flowered Column Printing</div>
+                <script>
+                    const video3 = document.querySelector('.exploreMore div:nth-child(9) video');
+                    video3.parentElement.addEventListener('mouseenter', () => video3.play());
+                    video3.parentElement.addEventListener('mouseleave', () => {
+                        video3.pause();
+                        video3.currentTime = 0;
+                    });
+                </script>
             </div>
         </div>
     </div>
@@ -663,6 +693,18 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Video hover play/pause
+            const video = document.querySelector('video');
+            if (video) {
+                video.addEventListener('mouseenter', () => {
+                    video.play();
+                });
+                video.addEventListener('mouseleave', () => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
+            }
+
             const medias = document.querySelectorAll('.home__project-media');
             const projects = document.querySelectorAll('.home__project-wrapper');
             const scrollProgress = document.querySelector('.scrollbar__progress');
