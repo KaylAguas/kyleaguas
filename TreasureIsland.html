@@ -3,10 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture</title>
+    <title>15 Treasure Island</title>
     <link rel="icon" type="image/svg+xml" href="assets/Logo_v1.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .horizontal-scroll-progress {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vh;
+            max-width: 80vw;
+            height: 3px;
+            background: rgba(0,0,0,0.1);
+            z-index: 100;
+            display: none;
+        }
+        .horizontal-scroll-progress .active-section {
+            opacity: 1 !important;
+            font-family: UncutSans-Semibold;
+        }
+        .btm_text {
+            font-family: UncutSans-Light;
+        }
+        .horizontal-scroll-progress .flex span {
+            position: relative;
+            transform: translateX(0);
+        }
+
+        .horizontal-scroll-progress__bar {
+            height: 100%;
+            width: 0;
+            background: black;
+            transition: width 0.1s ease-out;
+        }
+
+        @media (min-width: 1200px) {
+            .horizontal-scroll-progress {
+                display: block;
+            }
+            html {
+                cursor: none;
+            }
+        }
+
         @media (max-width: 1199px) {
             .home__project-media {
                 filter: blur(0px) !important;
@@ -19,19 +59,18 @@
                 display: none !important;
             }
             .home__project-media {
-                display: flex;
-                flex-direction: column;
+                flex-direction: column !important;
                 justify-content: center;
             }
             .home__project-wrapper {
-                margin: 0px 0px 15px 78px !important;
-                padding-right: 78px !important;
+                margin: 0px 0px 15px 0px !important;
+                padding-right: 0px !important;
                 text-align: left;
-                width: calc(100% - 120px)!important;
+                width: 90vw !important;
                 height: auto;
             }
             .home__project-wrapper img{
-                width: 100% !important;
+                width: 95% !important;
                 height: unset !important;
                 object-fit: contain;
             }
@@ -43,28 +82,68 @@
                 font-size: 24px;
                 text-align: left;
             }
-            .exploreMore {
-                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            h3 {
+                position: relative;
+                text-align: left !important;
+                left: 1.25rem !important;
             }
-            .exploreMore2 {
-                margin-top: 5vh !important;
+            a, button, span, div, input, label, select, textarea {
+                cursor: auto !important;
+            }
+            html {
+                overflow-x: hidden !important;
+                overflow-y: unset !important;
+                cursor: auto !important;
+            }
+            .content_Title {
+                position: relative;
+                text-align: left !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .columnContent {
+                margin: unset !important;
+                width: 90vw;
+            }
+            .textRight {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .content_MidText {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 25px !important;
+                margin-top: 25px !important;
+            }
+            .subheading_central {
+                position: relative;
+                width: auto !important;
+                height: 100px !important;
+                align-items: center !important;
+                left: 1.25rem;
+            }
+            .hideFX {
+                display: none !important;
             }
         }
-
         @media (max-width: 810px) {
             #exposed_menu {
                 background-color: transparent !important;
+                mix-blend-mode: normal;
             }
             #side-menu.translate-x-0 {
                 width: 100vw;
                 z-index:60;
             }
-            body.menu-open .main_Logo,
             body.menu-open nav {
                 opacity: 0;
                 transition: opacity 0.3s ease-in-out;
             }
-            .main_Logo,
             nav {
                 transition: opacity 0.3s ease-in-out;
             }
@@ -79,18 +158,15 @@
             }
             .home__project-media {
                 display: flex;
-                flex-direction: column;
+                flex-direction: column !important;
                 justify-content: center;
+                overflow-x: hidden;
             }
             .home__project-wrapper {
-                margin: 0px 0px 15px 65px !important;
-                padding-right: 10px !important;
-                text-align: left;
-                width: calc(100% - 120px)!important;
-                height: auto;
+                width: 100vw !important;
             }
             .home__project-wrapper img{
-                width: 100% !important;
+                width: 95% !important;
                 height: unset !important;
                 object-fit: contain;
             }
@@ -105,7 +181,7 @@
             #menu-toggle {
                 z-index:70 !important;
                 margin-top: 18px;
-                align-items: center;
+                align-items: flex-end;
                 top: 50%;
             }
             .navText {
@@ -134,23 +210,58 @@
             nav a:hover::after {
                 width: 100%;
             }
-            .exploreMore {
-                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-                width: 95vw !important;
+            .inner-cursor {
+                display: none;
             }
-            .exploreMore2 {
-                margin-top: 15px !important;
+            a, button, span, div, input, label, select, textarea {
+                cursor: auto !important;
+            }
+            html {
+                overflow-x: hidden !important;
+                overflow-y: unset !important;
+                cursor: auto !important;
+            }
+            .content_Title {
+                position: relative;
+                text-align: left !important;
+                left: 1.25rem;
                 margin-bottom: 15px !important;
             }
-            .exploreMore2 h2{
-                margin-top: 15px !important;
+            .columnContent {
+                margin: unset !important;
+                width: 90vw;
+            }
+            .textRight {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
                 margin-bottom: 15px !important;
+            }
+            .content_MidText {
+                position: relative;
+                text-align: left !important;
+                width: 90vw !important;
+                left: 1.25rem;
+                margin-bottom: 15px !important;
+            }
+            .bottom_logo {
+                display: flex !important;
+                left: 1.25rem !important;
+                font-size: 12px !important;
+                margin-right: 40px !important;
+                margin-bottom: 12px;
+            }
+            .bottom_logo p{
+                text-align: left !important;
+                width: 100%;
+                margin-right: unset !important;
             }
         }
-        
         /* Custom CSS for the transition effect */
-        *{
+        html {
             cursor: none;
+            overflow-y: hidden;
         }
           a, button, span, div, input, label, select, textarea {
           cursor: none !important;
@@ -166,6 +277,9 @@
             pointer-events: none;
             transition: width 0.5s, height 0.5s;
         }
+        .inner-cursor.hidden {
+            opacity: 0;
+        }
         #side-menu {
             z-index: 101;
         }
@@ -175,36 +289,8 @@
             transition: width 0.3s, height 0.3s;
         }
         @font-face {
-            font-family: 'UncutSans-Bold';
-            src: url('fonts/UncutSans-Bold.otf') format('opentype');
-        }
-        @font-face {
-        font-family: 'UncutSans-BoldItalic';
-        src: url('fonts/UncutSans-BoldItalic.otf') format('opentype');
-        }
-        @font-face {
-        font-family: 'UncutSans-Book';
-        src: url('fonts/UncutSans-Book.otf') format('opentype');
-        }
-        @font-face {
-        font-family: 'UncutSans-BookItalic';
-        src: url('fonts/UncutSans-BookItalic.otf') format('opentype');
-        }
-        @font-face {
         font-family: 'UncutSans-Light';
         src: url('fonts/UncutSans-Light.otf') format('opentype');
-        }
-        @font-face {
-        font-family: 'UncutSans-LightItalic';
-        src: url('fonts/UncutSans-LightItalic.otf') format('opentype');
-        }
-        @font-face {
-        font-family: 'UncutSans-Medium';
-        src: url('fonts/UncutSans-Medium.otf') format('opentype');
-        }
-        @font-face {
-        font-family: 'UncutSans-MediumItalic';
-        src: url('fonts/UncutSans-MediumItalic.otf') format('opentype');
         }
         @font-face {
         font-family: 'UncutSans-Regular';
@@ -221,6 +307,10 @@
         @font-face {
         font-family: 'UncutSans-SemiboldItalic';
         src: url('fonts/UncutSans-SemiboldItalic.otf') format('opentype');
+        }
+        @font-face {
+        font-family: 'UncutSans-Bold';
+        src: url('fonts/UncutSans-Bold.otf') format('opentype');
         }
         body {
             font-family: UncutSans-Regular;
@@ -243,7 +333,6 @@
             font-family: UncutSans-Semibold;
             font-size: 26px;
         }
-
         #menu_text{
             display: flex;
             flex-direction: column;
@@ -252,7 +341,9 @@
         }
         .main_Logo {
             width: 60px;
-            mix-blend-mode: difference;
+        }
+        #back-button {
+            cursor: none;
         }
         .doubleText {
             display:flex;
@@ -262,8 +353,9 @@
         }
         .home__project-wrapper {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
+            align-items: flex-start;
             margin: 90px 0 90px 90px;
             padding-right: 100px;
             text-align: center;
@@ -272,44 +364,19 @@
         .home__project-media {
             max-height: unset;
             height: auto !important;
-            overflow: hidden;
+            overflow: scroll;
             position: relative;
             width: 100%;
             will-change: filter, transform;
             cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none; /* For IE and Edge */
         }
-        .project-detail-view {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: white;
-            z-index: 100;
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-        }
-        .project-detail-view.active {
-            display: block;
-        }
-        .project-detail-slide {
-            display: inline-block;
-            width: 100vw;
-            height: 100vh;
-            vertical-align: top;
-            white-space: normal;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .close-detail-view {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 101;
-            cursor: pointer;
-            font-size: 24px;
+        .home__project-media::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari and Opera */
         }
         .home__project-media.visible {
             filter: blur(0px);
@@ -318,14 +385,40 @@
         .home__project-media img {
             height: 80vh;
             width: auto;
-            object-fit: contain;
+            object-fit: cover;
             margin: 0 auto;
         }
         .home__mobile-project-title{
             display: none;
         }
+        .navText {
+            font-size: 16px;
+            background-color: white;
+            padding-top: 32.5px;
+            padding-bottom: 32.5px;
+            gap: 10vw;
+            max-width: 100vw;
+        }
+        nav a {
+            position: relative;
+            text-decoration: none;
+            color: #6b6b6b !important;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #6b6b6b;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
         #menu-toggle {
-            z-index:70 !important;
+            z-index:70;
             margin-top: 18px;
         }
         #exposed_menu {
@@ -414,90 +507,100 @@
             font-size: 16px;
         }
         .exploreMore {
-            width: calc(100vw - 84px);
-            margin-left: 10px;
-            margin-bottom: 5vh;
-            margin-top: 2vh;
-            margin-right: 10px;
-            padding: 0;
-        }
-        .exploreMore a {
-            aspect-ratio: 4/5;
-            overflow: hidden;
-            margin: 5px;
-        }
-        .exploreMore img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 1rem;
-            z-index: 60;
-        }
-        .exploreMore-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            background: white;
-            border-radius: 50%;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-            z-index: 40;
-            mix-blend-mode: normal;
-            transition: all 0.3s ease;
-        }
-        .alt-text-btn {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 5px 10px;
-            background: white;
-            border-radius: 20px;
-            opacity: 0;
-            z-index: 70;
-            mix-blend-mode: normal;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            white-space: nowrap;
-            max-width: 80%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .exploreMore a:hover .exploreMore-btn,
-        .exploreMore-btn:hover,
-        .exploreMore a:hover .alt-text-btn {
-            background: black;
-            color: white;
-            opacity: 1;
-        }
-        .exploreMore a:hover .exploreMore-btn svg path,
-        .exploreMore-btn:hover svg path {
-            stroke: white;
-            transition: all 0.3s ease;
-        }
-        .exploreMore img:hover {
-            border-radius: 1rem;
-            transition: transform 0.3s ease;
-        }
-        .exploreMore2 {
-            display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 15vh;
+            margin-top: 40vh;
+            margin-bottom: 40vh;
         }
         .exButton {
-            font-family: UncutSans-Semibold;
-            font-size: 64px;
+            border: 1px solid black;
+            font-size: 3vh;
+            border-radius: 50px;
+            padding:11.5px 30px;
+            margin: 60px;
+            background-color: white;
             color: black;
+            transition: all 0.3s ease;
         }
-        .exButton2 {
-            font-size: 48px;
+        .exButton:hover {
+            background-color: black;
+            color: white;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        .fixed.top-20.left-4.z-50 {
+            color: black;
+            transition: color 0.3s ease;
+        }
+        .home__project-media {
+            cursor: grab !important;
+            user-select: none;
+        }
+        .columnContent {
+            cursor: grab !important;
+            user-select: none;
+        }
+        .home__project-media.active {
+            cursor: grabbing !important;
+        }
+        .content_Title {
+            text-align: right;
+            font-size: 28px;
+            font-family: UncutSans-Semibold;
+        }
+        .content_MidText {
             text-align: left;
-            color: #818181;
+            font-size: 16px;
+            width: 150px;
+            font-family: UncutSans-Light;
+        }
+        .columnContent {
+            flex-direction: column;
+            margin: 0px 30px 30px 30px;         
+        }
+        .textRight {
+            text-align: center;
+            width: 300px;
+            font-size: 16px;
+            font-family: UncutSans-Light;
+        }
+        .subheading {
+            text-align: right;
+            font-size: 22px;
+            font-family: UncutSans-Regular;
+            margin-top: 22px;
+        }
+        .subheading_2 {
+            text-align: center;
+            font-size: 22px;
+            font-family: UncutSans-Regular;
+            margin-bottom: 22px;
+        }
+        .subheading_central {
+            display: flex;
+            justify-content: center;
+            font-size: 22px;
+            font-family: UncutSans-Regular;
+            width: 200px !important;
+            height: 80vh;
+        }
+        .bottom_logo {
+            display: none;
+            justify-content: space-between;
+            font-family: UncutSans-Semibold;
+            font-size: 12px;
+            position: relative;
+        }
+        .bottom_logo p{
+            display: none;
+            margin-right: 120px;
+            text-align: right;
+        }
+        .textGap {
+            margin-top: 16px;
+        }
+        .imgGap {
+            margin-left: 25px !important;
         }
     </style>
 </head>
@@ -521,188 +624,88 @@
         </span>
     </div>
     <div class="contentBody">
-        <div class="scrollbar">
-            <div class="scrollbar__progress"></div>
-            <div class="scrollbar__index">
-                <span class="scrollbar__index-number">1</span><span class="scrollbar__index-separator">/5</span><span class="scrollbar__index-title">GalleryHaus</span><span class="scrollbar__index-comma">,</span><span class="scrollbar__index-year">2025</span>
-            </div>
+        <div class="topBar">
         </div>
-
         <a href="index.html" class="fixed top-4 left-4 z-50" id="logo_cont">
             <img src="assets/Logo_v1.svg" alt="Logo" class="main_Logo">
         </a>
-        <a href="index.html" class="fixed top-20 left-4 z-50">
+        <a href="Architecture.html" class="fixed top-20 left-4 z-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="24" viewBox="0 0  24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="flat" stroke-linejoin="flat">
                 <line id="mainLine" class="mainLine" x1="24" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
         </a>
-
         <section class="home__regular-view-wrapper undefined">
             <div class="home__project-wrapper firstProj">
-                <a class="home__project-media" href="GalleryHaus.html">
-                    <img src="assets/1.jpg" alt="GalleryHaus">
-                    <div class="home__mobile-project-title">
-                        <span class="home__mobile-year">2025</span>
-                        <span class="home__mobile-title">Semester 1</span>
-                        <span class="home__project-title">GalleryHaus</span>
-                        <span class="home__category">(University)</span>
+                <div class="home__project-media">
+                    <div id="a1" class="columnContent">
+                        <h2 class="content_Title">15 Treasure Island</h2>
+                        <p class="textRight">Work - Type0 Architecture</p>
+                        <h3 class="subheading">Typology</h3>
+                        <p class="textRight">Residential</p>
+                        <h3 class="subheading">Project Role</h3>
+                        <p class="textRight">My primary task for this project was to create renders for the external as well as the internal spaces of the room.</p>
+                        <h3 class="subheading">Location</h3>
+                        <p class="textRight">15 Treasure Island, Sentosa - Singapore</p>
+                        <p class="textRight relative top-3 flex justify-end items-center gap-1 hideFX">Scroll Right
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="27" y2="12"></line>
+                                <polyline points="20 5 27 12 20 19"></polyline>
+                            </svg>
+                        </p>
                     </div>
-                </a>
-            </div>
-            <div class="home__project-wrapper ">
-                <a class="home__project-media" href="LightFilterHouse.html">
-                    <img src="assets/3.jpg" alt="Light Filter House">
-                    <div class="home__mobile-project-title">
-                        <span class="home__mobile-year">2025</span>
-                        <span class="home__mobile-title">Semester 1</span>
-                        <span class="home__project-title">Light Filter House</span>
-                        <span class="home__category">(University)</span>
+                    <img src="assets/TreasureIsland/1.jpg" alt="floor plans, b1-l1">
+                    <div class="columnContent">
+                        <h3 class="subheading_2">Exterior Renders</h3>
+                    <div class="columnContent">
+                        <p class="content_MidText">
+                        </p>
                     </div>
-                </a>
-            </div>
-            <div class="home__project-wrapper ">
-                <a class="home__project-media" href="Novus.html">
-                    <img src="assets/4.jpg" alt="Novus">
-                    <div class="home__mobile-project-title">
-                        <span class="home__mobile-year">2021</span>
-                        <span class="home__mobile-title">Final Year Project</span>
-                        <span class="home__project-title">Novus</span>
-                        <span class="home__category">(Polytechnic)</span>
                     </div>
-                </a>
-            </div>
-            <div class="home__project-wrapper ">
-                <a class="home__project-media" href="SocialWeaver.html">
-                    <img src="assets/5.jpg" alt="Social Weaver">
-                    <div class="home__mobile-project-title">
-                        <span class="home__mobile-year">2021</span>
-                        <span class="home__mobile-title">Project Shea</span>
-                        <span class="home__project-title">Social Weaver</span>
-                        <span class="home__category">(Competition)</span>
+                    <img src="assets/TreasureIsland/2.jpg" alt="floor plans l2-l3">
+                    <div class="columnContent">
+                        <h3 class="subheading_2" id="a2">Living Room</h3>
+                    <div class="columnContent">
+                        <p class="content_MidText">
+                        </p>
                     </div>
-                </a>
-            </div>
-            <div class="home__project-wrapper ">
-                <a class="home__project-media" href="CoveWay.html">
-                    <img src="assets/7.jpg" alt="6 Cove Way">
-                    <div class="home__mobile-project-title">
-                        <span class="home__mobile-year">2024</span>
-                        <span class="home__mobile-title">Type0</span>
-                        <span class="home__project-title">Cove Way</span>
-                        <span class="home__category">(Work)</span>
                     </div>
-                </a>
+                    <img src="assets/TreasureIsland/3.png" alt="conceptSketches">
+                    <img src="assets/TreasureIsland/4.png" class="imgGap" alt="GalleryHaus">
+                    <div class="columnContent" id="a3">
+                        <h3 class="subheading_2">Bedroom</h3>
+                    <div class="columnContent">
+                        <p class="content_MidText">
+                        </p>
+                    </div>
+                    </div>
+                    <img src="assets/TreasureIsland/5.png" alt="GalleryHaus">
+                    <img src="assets/TreasureIsland/6.png" class="imgGap" alt="GalleryHaus">
+                    <div class="columnContent" id="a4">
+                        <h3 class="subheading_2">Master Bedroom</h3>
+                    <div class="columnContent">
+                        <p class="content_MidText">
+                        </p>
+                    </div>
+                    </div>
+                    <img src="assets/TreasureIsland/7.png" alt="GalleryHaus">
+                    <img src="assets/TreasureIsland/8.png" class="imgGap" alt="GalleryHaus">
+                </div>
             </div>
         </section>
-        <div class="exploreMore2">
-            <div>
-                <h1 class="exButton">Selected Works</h1>
-                <h2 class="exButton2">18' - Present</h2>
+        <div class="horizontal-scroll-progress">
+            <div class="flex justify-between w-full absolute bottom-8 left-0 px-[10%] btm_text">
+                <a href="#a1" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Exterior Renders</a>
+                <a href="#a2" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Living</a>
+                <a href="#a3" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Bedroom</a>
+                <a href="#a4" class="text-xs opacity-50 hover:opacity-100 transition-opacity duration-300">Master Bedroom</a>
             </div>
+            <div class="horizontal-scroll-progress__bar"></div>
         </div>
-        <div class="exploreMore grid grid-cols-5 gap-0">
-            <a href="Faelles.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/10.jpg" alt="Faelles" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">Faelles</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-            <a href="TreasureIsland.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/16.jpg" alt="15 Treasure Island" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">15 Treasure Island</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-            <a href="#" class="overflow-hidden rounded-lg relative">
-                <img src="assets/8.jpg" alt="15 Woo Mon Chew" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">15 Woo Mon Chew</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-            <a href="TunnelOfYouth.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/6.jpg" alt="Tunnel of Youth" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">Tunnel of Youth</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-            <a href="CubeChallenge.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/9.jpg" alt="CUBE Challenge 2018" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">CUBE Challenge 2018</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-            <a href="#" class="overflow-hidden rounded-lg relative">
-                <img src="assets/11.jpg" alt="Steph's Renovation" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">Steph's Renovation</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-            <a href="#" class="overflow-hidden rounded-lg relative">
-                <img src="assets/12.jpg" alt="Jalan Kechil" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">Jalan Kechil</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-            <a href="#" class="overflow-hidden rounded-lg relative">
-                <img src="assets/13.jpg" alt="Elias Road" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">Elias Road</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-            <a href="#" class="overflow-hidden rounded-lg relative">
-                <img src="assets/14.jpg" alt="Donovan Dwelling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">Donovan Dwelling</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-            <a href="#" class="overflow-hidden rounded-lg relative">
-                <img src="assets/15.jpg" alt="Katong B1-124" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                <div class="alt-text-btn  ">Katong B1-124</div>
-                <button class="exploreMore-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M4.66663 11.3333L11.3333 4.66663" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M4.66663 4.66663H11.3333V11.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-            </a>
-        </div>
+    </div>
+    <div class="bottom_logo left-10">
+        <p class="text-gray-500">©2025, kyle aguas.</p>
+        <p class="text-gray-500">Last Update: aug 2025</p>        
     </div>
     <script>
         let innerCursor = document.querySelector('.inner-cursor');
@@ -788,6 +791,14 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const medias = document.querySelectorAll('.home__project-media');
+            medias.forEach(media => {
+                media.addEventListener('click', function() {
+                    const href = this.getAttribute('data-href');
+                    if (href) {
+                        window.location.href = href;
+                    }
+                });
+            });
             const projects = document.querySelectorAll('.home__project-wrapper');
             const scrollProgress = document.querySelector('.scrollbar__progress');
             const scrollIndexNumber = document.querySelector('.scrollbar__index-number');
@@ -797,15 +808,14 @@
             function updateScrollbar() {
                 // Calculate scroll progress
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const exploreMore2 = document.querySelector('.exploreMore2');
-                const scrollHeight = exploreMore2.offsetTop + exploreMore2.offsetHeight - document.documentElement.clientHeight;
-                const scrolled = Math.min((scrollTop / scrollHeight) * 100, 100);
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (scrollTop / scrollHeight) * 100;
                 scrollProgress.style.height = `${scrolled}%`;
 
                 // Fade out scrollbar when near bottom
                 const scrollbar = document.querySelector('.scrollbar');
                 const distanceFromBottom = scrollHeight - scrollTop;
-                const fadeThreshold = 200; // pixels from bottom to start fading
+                const fadeThreshold = 1000; // pixels from bottom to start fading
                 
                 if (distanceFromBottom < fadeThreshold) {
                     const opacity = distanceFromBottom / fadeThreshold;
@@ -897,41 +907,50 @@
             window.addEventListener('resize', updateEffects);
         });
         document.addEventListener('DOMContentLoaded', () => {
-        const content = document.querySelector('.contentBody');
-        if (content) content.classList.add('loaded');
+            const content = document.querySelector('.contentBody');
+            if (content) content.classList.add('loaded');
 
-        const links = document.querySelectorAll('a');
+            const links = document.querySelectorAll('a');
 
-        links.forEach(link => {
-            if (
-            link.hostname === window.location.hostname &&
-            link.getAttribute('target') !== '_blank' &&
-            !link.href.startsWith('#')
-            ) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const url = this.href;
-                
-                // Close menu if open
-                const sideMenu = document.getElementById('side-menu');
-                if (sideMenu && !sideMenu.classList.contains('translate-x-full')) {
-                    const menuToggle = document.getElementById('menu-toggle');
-                    if (menuToggle) menuToggle.click();
-                }
+            links.forEach(link => {
+                // 🔒 Skip links inside .horizontal-scroll-progress
+                if (link.closest('.horizontal-scroll-progress')) return;
 
-                if (content) {
-                    content.classList.remove('loaded');
-                    content.classList.add('fade-out');
-                    setTimeout(() => {
-                        window.location.href = url;
-                    }, 600); // matches the blur-out duration
-                } else {
-                    window.location.href = url; // fallback
+                if (
+                    link.hostname === window.location.hostname &&
+                    link.getAttribute('target') !== '_blank' &&
+                    !link.href.startsWith('#')
+                ) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const url = this.href;
+
+                        if (content) {
+                            // Close menu if open
+                            const sideMenu = document.getElementById('side-menu');
+                            if (sideMenu && !sideMenu.classList.contains('translate-x-full')) {
+                                sideMenu.classList.add('translate-x-full');
+                                sideMenu.classList.remove('translate-x-0');
+                                document.body.classList.remove('menu-open');
+                                const bar1 = document.getElementById('bar1');
+                                const bar2 = document.getElementById('bar2');
+                                bar1.style.transform = '';
+                                bar2.style.transform = '';
+                            }
+                            
+                            content.classList.remove('loaded');
+                            content.classList.add('fade-out');
+                            setTimeout(() => {
+                                window.location.href = url;
+                            }, 600);
+                        } else {
+                            window.location.href = url;
+                        }
+                    });
                 }
             });
-            }
         });
-        });
+
         document.addEventListener('DOMContentLoaded', () => {
         const svgLink = document.querySelector('a.fixed.top-20.left-4.z-50');
         const mainLine = document.getElementById('mainLine');
@@ -971,6 +990,159 @@
         svgLink.addEventListener('mouseenter', () => animateX1(40));
         svgLink.addEventListener('mouseleave', () => animateX1(24));
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const scrollContainer = document.querySelector('.home__project-media');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    // Disable image dragging
+    document.querySelectorAll('.home__project-media img').forEach(img => {
+        img.addEventListener('dragstart', e => e.preventDefault());
+    });
+
+    if (scrollContainer) {
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            scrollContainer.classList.add('active');
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+
+        let velocity = 0;
+        let lastX;
+        let animationId;
+        let lastTime;
+
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            scrollContainer.scrollLeft = scrollLeft - walk;
+            
+            // Calculate velocity for momentum
+            const now = performance.now();
+            if (lastX !== undefined && lastTime !== undefined) {
+                const deltaX = (x - lastX) * 1.1;
+                const deltaTime = now - lastTime;
+                velocity = deltaX / deltaTime * 500; // pixels per second
+            }
+            lastX = x;
+            lastTime = now;
+        });
+
+        function animateMomentum() {
+            if (Math.abs(velocity) > 0.1) {
+                scrollContainer.scrollLeft -= velocity * 0.016; // 60fps frame time
+                velocity *= 0.95; // friction
+                animationId = requestAnimationFrame(animateMomentum);
+            } else {
+                velocity = 0;
+                cancelAnimationFrame(animationId);
+            }
+        }
+
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+            if (Math.abs(velocity) > 10) { // Only apply momentum if significant velocity
+                cancelAnimationFrame(animationId);
+                animationId = requestAnimationFrame(animateMomentum);
+            }
+        });
+
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+            if (Math.abs(velocity) > 10) { // Only apply momentum if significant velocity
+                cancelAnimationFrame(animationId);
+                animationId = requestAnimationFrame(animateMomentum);
+            }
+        });
+    }
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        const innerCursor = document.querySelector('.inner-cursor');
+        const projectMedia = document.querySelectorAll('.home__project-media');
+        const progressBar = document.querySelector('.horizontal-scroll-progress__bar');
+
+        projectMedia.forEach(media => {
+            media.addEventListener('mouseenter', () => {
+                innerCursor.classList.add('hidden');
+            });
+
+            media.addEventListener('mouseleave', () => {
+                innerCursor.classList.remove('hidden');
+            });
+
+            // Track horizontal scroll progress
+            if (progressBar) {
+                media.addEventListener('scroll', () => {
+                    const scrollWidth = media.scrollWidth - media.clientWidth;
+                    const scrolled = (media.scrollLeft / scrollWidth) * 100;
+                    progressBar.style.width = `${scrolled}%`;
+                    
+                    // Highlight the current section
+                    const sectionSpans = document.querySelectorAll('.horizontal-scroll-progress a');
+                    sectionSpans.forEach(a => a.classList.remove('active-section'));
+                    
+                    if (scrolled === 0) {
+                        return; // No active section at 0%
+                    } else if (scrolled < 25) {
+                        sectionSpans[0].classList.add('active-section');
+                    } else if (scrolled < 50) {
+                        sectionSpans[1].classList.add('active-section');
+                    } else if (scrolled < 75) {
+                        sectionSpans[2].classList.add('active-section');
+                    } else {
+                        sectionSpans[3].classList.add('active-section');
+                    }
+                });
+            }
+        });
+    });
+
+        // Smooth scroll to sections
+        document.querySelectorAll('.horizontal-scroll-progress a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const mediaContainer = document.querySelector('.home__project-media');
+                
+                if (targetElement && mediaContainer) {
+                    const scrollPosition = targetElement.offsetLeft - mediaContainer.offsetLeft;
+                    mediaContainer.scrollTo({
+                        left: scrollPosition,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close menu if open
+                const sideMenu = document.getElementById('side-menu');
+                if (sideMenu && !sideMenu.classList.contains('translate-x-full')) {
+                    sideMenu.classList.add('translate-x-full');
+                    sideMenu.classList.remove('translate-x-0');
+                    document.body.classList.remove('menu-open');
+                    const bar1 = document.getElementById('bar1');
+                    const bar2 = document.getElementById('bar2');
+                    bar1.style.transform = '';
+                    bar2.style.transform = '';
+                }
+            });
+        });
     </script>
 </body>
 </html>
