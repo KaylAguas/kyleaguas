@@ -51,6 +51,9 @@
             .exploreMore2 {
                 margin-top: 5vh !important;
             }
+            .footerText {
+                margin-left: 15px !important;
+            }
         }
 
         @media (max-width: 810px) {
@@ -236,7 +239,8 @@
             opacity: 1;
             transition: opacity 1.5s ease;
         }
-        .contentBody.fade-out {
+        .contentBody.fade-out,
+        footer.fade-out {
             opacity: 0;
             transition: opacity 1s ease;
         }
@@ -501,6 +505,42 @@
             text-align: left;
             color: #818181;
         }
+        footer a {
+            transition: all 0.3s ease;
+        }
+        footer a:hover {
+            color: #000;
+        }
+        footer svg {
+            transition: transform 0.3s ease;
+        }
+        footer a:hover svg {
+            transform: translateY(-2px);
+        }
+        .hover-arrow {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .hover-arrow span::before { /*SMALL ARROW APPEARING*/
+            content: "";
+            position: absolute;
+            left: -18px;
+            top: 4px;
+            opacity: 0;
+            transform: translateY(5px) translateX(-5px);
+            transition: all 0.3s ease;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1119_2159)'%3E%3Cpath d='M1 7L7 1M7 1H2.6799M7 1V5.3193' stroke-width='1.2' stroke-linejoin='round' stroke='black'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1119_2159'%3E%3Crect width='8' height='8' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .hover-arrow:hover span::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body>
@@ -531,7 +571,7 @@
         </div>
 
         <a href="index.html" class="fixed top-4 left-4 z-50" id="logo_cont">
-            <img src="assets/Logo_v1.svg" alt="Logo" class="main_Logo">
+            <img src="assets/Logo_v1.svg" alt="kyle aguas main logo" class="main_Logo">
         </a>
         <a href="index.html" class="fixed top-20 left-4 z-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="24" viewBox="0 0  24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="flat" stroke-linejoin="flat">
@@ -543,7 +583,7 @@
         <section class="home__regular-view-wrapper undefined">
             <div class="home__project-wrapper firstProj">
                 <a class="home__project-media" href="GalleryHaus.html">
-                    <img src="assets/1.jpg" alt="GalleryHaus">
+                    <img src="assets/1.jpg" alt="picture of kyle's GalleryHaus university project">
                     <div class="home__mobile-project-title">
                         <span class="home__mobile-year">2025</span>
                         <span class="home__mobile-title">Semester 1</span>
@@ -554,7 +594,7 @@
             </div>
             <div class="home__project-wrapper ">
                 <a class="home__project-media" href="LightFilterHouse.html">
-                    <img src="assets/3.jpg" alt="Light Filter House">
+                    <img src="assets/3.jpg" alt="picture of kyle's Light Filter House university project">
                     <div class="home__mobile-project-title">
                         <span class="home__mobile-year">2025</span>
                         <span class="home__mobile-title">Semester 1</span>
@@ -565,7 +605,7 @@
             </div>
             <div class="home__project-wrapper ">
                 <a class="home__project-media" href="Novus.html">
-                    <img src="assets/4.jpg" alt="Novus">
+                    <img src="assets/4.jpg" alt="picture of kyle's Novus polytechnic project">
                     <div class="home__mobile-project-title">
                         <span class="home__mobile-year">2021</span>
                         <span class="home__mobile-title">Final Year Project</span>
@@ -576,7 +616,7 @@
             </div>
             <div class="home__project-wrapper ">
                 <a class="home__project-media" href="SocialWeaver.html">
-                    <img src="assets/5.jpg" alt="Social Weaver">
+                    <img src="assets/5.jpg" alt="picture of kyle's Social Weaver project from a competition">
                     <div class="home__mobile-project-title">
                         <span class="home__mobile-year">2021</span>
                         <span class="home__mobile-title">Project Shea</span>
@@ -587,7 +627,7 @@
             </div>
             <div class="home__project-wrapper ">
                 <a class="home__project-media" href="CoveWay.html">
-                    <img src="assets/7.jpg" alt="6 Cove Way">
+                    <img src="assets/7.jpg" alt="picture of kyle's 6 Cove Way project from working at Type0">
                     <div class="home__mobile-project-title">
                         <span class="home__mobile-year">2024</span>
                         <span class="home__mobile-title">Type0</span>
@@ -605,7 +645,7 @@
         </div>
         <div class="exploreMore grid grid-cols-5 gap-0">
             <a href="Faelles.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/10.jpg" alt="Faelles" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/10.jpg" alt="picture of kyle's Faelles project from year 2 polytechnic" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">Faelles</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -615,7 +655,7 @@
                 </button>
             </a>
             <a href="TreasureIsland.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/16.jpg" alt="15 Treasure Island" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/16.jpg" alt="picture of kyle's 15 Treasure Island from work at Type0" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">15 Treasure Island</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -625,7 +665,7 @@
                 </button>
             </a>
             <a href="WooMonChew.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/8.jpg" alt="15 Woo Mon Chew" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/8.jpg" alt="picture of kyle's 15 Woo Mon Chew from work at Type0" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">15 Woo Mon Chew</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -635,7 +675,7 @@
                 </button>
             </a>
             <a href="TunnelOfYouth.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/6.jpg" alt="Tunnel of Youth" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/6.jpg" alt="picture of kyle's Tunnel of Youth competition project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">Tunnel of Youth</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -645,7 +685,7 @@
                 </button>
             </a>
             <a href="CubeChallenge.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/9.jpg" alt="CUBE Challenge 2018" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/9.jpg" alt="picture of kyle's CUBE Challenge 2018 competition project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">CUBE Challenge 2018</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -655,7 +695,7 @@
                 </button>
             </a>
             <a href="StephRenovation.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/11.jpg" alt="Steph's Renovation" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/11.jpg" alt="picture of kyle's Steph's Renovation project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">Steph's Renovation</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -665,7 +705,7 @@
                 </button>
             </a>
             <a href="JalanKechil.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/12.jpg" alt="Jalan Kechil" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/12.jpg" alt="picture of kyle's Jalan Kechil project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">Jalan Kechil</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -675,7 +715,7 @@
                 </button>
             </a>
             <a href="EliasRoad.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/13.jpg" alt="Elias Road" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/13.jpg" alt="picture of kyle's Elias Road renovation project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">Elias Road</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -685,7 +725,7 @@
                 </button>
             </a>
             <a href="DonovanDwelling.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/14.jpg" alt="Donovan Dwelling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/14.jpg" alt="picture of kyle's Donovan Dwelling project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">Donovan Dwelling</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -695,7 +735,7 @@
                 </button>
             </a>
             <a href="Katong.html" class="overflow-hidden rounded-lg relative">
-                <img src="assets/15.jpg" alt="Katong B1-124" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                <img src="assets/15.jpg" alt="picture of kyle's Katong B1-124 project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                 <div class="alt-text-btn  ">Katong B1-124</div>
                 <button class="exploreMore-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -706,6 +746,24 @@
             </a>
         </div>
     </div>
+
+    <footer class="bg-white py-8 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-xl font-semibold mb-4">Contact</h3>
+            <div class="flex flex-wrap gap-6 footerText">
+                <a href="mailto:kyleeeaguas@gmail.com" class="invertText hover-arrow">
+                    <span>kyleeeaguas@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/KyleAguas" target="_blank" class="invertText hover-arrow">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/rpsitry/" target="_blank" class="invertText hover-arrow">
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
     <script>
         let innerCursor = document.querySelector('.inner-cursor');
         
@@ -921,12 +979,14 @@
                     if (menuToggle) menuToggle.click();
                 }
 
-                if (content) {
+                const footer = document.querySelector('footer');
+                if (content && footer) {
                     content.classList.remove('loaded');
                     content.classList.add('fade-out');
+                    footer.classList.add('fade-out');
                     setTimeout(() => {
                         window.location.href = url;
-                    }, 600); // matches the blur-out duration
+                    }, 600); // matches the fade-out duration
                 } else {
                     window.location.href = url; // fallback
                 }
