@@ -759,6 +759,11 @@
         <p class="text-gray-500">Last Update: aug 2025</p>        
     </div>
     <script>
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        });
         let innerCursor = document.querySelector('.inner-cursor');
         
         document.addEventListener('mousemove', moveCursor);

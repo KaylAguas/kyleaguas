@@ -256,6 +256,9 @@
             a, button, span, div, input, label, select, textarea {
                 cursor: auto !important;
             }
+            .inner-cursor {
+                display: none;
+            }
         }
         @media (max-width: 1199px) {
             .contactSection {
@@ -756,6 +759,11 @@
         </div>
     </main>
     <script>
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        });
         let innerCursor = document.querySelector('.inner-cursor');
         
         document.addEventListener('mousemove', moveCursor);
